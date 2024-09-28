@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Logo\Logo-dual-colour-h80.png" />
+    <None Remove="Logo\Logo-dual-colour.png" />
+    <None Remove="Logo\logo-mono-colour-h80.png" />
+    <None Remove="Resources\Logo-dual-colour.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+    <PackageReference Include="MySqlConnector" Version="2.2.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Logo\Logo-dual-colour.png" />
+    <Resource Include="Resources\Logo-dual-colour.png" />
+  </ItemGroup>
+
+</Project>

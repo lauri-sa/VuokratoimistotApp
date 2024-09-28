@@ -1,0 +1,48 @@
+﻿<Window x:Class="Ohtu1Project.Views.OfficeViews.AddOfficeSpaceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ohtu1Project.Views.OfficeViews"
+        mc:Ignorable="d"
+        Title="Lisää uusi toimitila" SizeToContent="WidthAndHeight" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="#F2EFDF">
+    
+    <Canvas Height="450" Width="550">
+
+        <Image Source="/Logo/Logo-dual-colour.png" Height="84" Width="264" Canvas.Left="143" Canvas.Top="21"/>
+
+        <Rectangle Height="430" Width="530" Stroke="Black" StrokeThickness="1" RadiusX="10" RadiusY="10" Canvas.Left="10" Canvas.Top="10"/>
+        <Line Stroke="Black" StrokeThickness="1" X1="530" Canvas.Left="10" Canvas.Top="110"/>
+
+        <Line Stroke="Black" StrokeThickness="1" Y1="310" Canvas.Left="375" Canvas.Top="120"/>
+
+        <Label Content="Lisää uusi toimitila" Canvas.Left="70" Canvas.Top="134"/>
+        <Label Content="Valittu toimipiste:" Canvas.Left="70" Canvas.Top="174"/>
+        <Label Content="{Binding OfficeSpaceModel.OfficeName}" Canvas.Left="190" Canvas.Top="175"/>
+
+        <Label Content="Nimi:" Canvas.Left="70" Canvas.Top="220"/>
+        <Label Content="Koko (m²):" Canvas.Left="70" Canvas.Top="250"/>
+        <Label Content="Kapasiteetti (hlö):" Canvas.Left="70" Canvas.Top="280"/>
+        <Label Content="Hinta (e / pvä):" Canvas.Left="70" Canvas.Top="310"/>
+
+        <TextBox Width="130" Canvas.Left="190" Canvas.Top="224" MaxLength="45" Text="{Binding OfficeSpaceModel.Name}"/>
+
+        <TextBlock Width="130" Height="10" Canvas.Left="190" Canvas.Top="243" FontSize="8" Padding="0" Text="{Binding NameError}"/>
+
+        <TextBox Width="130" Canvas.Left="190" Canvas.Top="254" MaxLength="11" Text="{Binding OfficeSpaceModel.Size}"/>
+
+        <TextBlock Width="130" Height="10" Canvas.Left="190" Canvas.Top="273" FontSize="8" Padding="0" Text="{Binding SizeError}"/>
+
+        <TextBox Width="130" Canvas.Left="190" Canvas.Top="284" MaxLength="11" Text="{Binding OfficeSpaceModel.Capacity}"/>
+
+        <TextBlock Width="130" Height="10" Canvas.Left="190" Canvas.Top="303" FontSize="8" Padding="0" Text="{Binding CapacityError}"/>
+
+        <TextBox Width="130" Canvas.Left="190" Canvas.Top="314" Text="{Binding OfficeSpaceModel.Price}"/>
+
+        <TextBlock Width="130" Height="10" Canvas.Left="190" Canvas.Top="333" FontSize="8" Padding="0" Text="{Binding PriceError}"/>
+
+        <Button Content="Tallenna" FontSize="14" Width="100" Height="25" Canvas.Left="410" Canvas.Top="228" Command="{Binding AddButtonCommand}"/>
+        <Button Content="Palaa" FontSize="14" Width="100" Height="25" Canvas.Left="410" Canvas.Top="285" Command="{Binding ReturnButtonCommand}"/>
+
+    </Canvas>
+</Window>

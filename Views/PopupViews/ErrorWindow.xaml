@@ -1,0 +1,20 @@
+﻿<Window x:Class="Ohtu1Project.Views.ErrorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ohtu1Project.Views"
+        mc:Ignorable="d"
+        Title="ErrorWindow" SizeToContent="WidthAndHeight" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        BorderBrush="Black" BorderThickness="1" Background="#F2EFDF">
+
+    <Canvas Height="100" Width="250">
+
+        <TextBlock Text="Tapahtui odottamaton virhe" TextWrapping="Wrap" TextAlignment="Center" 
+                   Width="230" Height="45" Canvas.Left="10" Canvas.Top="13" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+        <Button Content="Yritä uudelleen" FontSize="11" Width="90" Height="20" Canvas.Left="29" Canvas.Top="65" HorizontalAlignment="Left" VerticalAlignment="Center" Command="{Binding RetryButtonCommand}"/>
+        <Button Content="Peruuta" FontSize="11" Width="90" Height="20" Canvas.Left="132" Canvas.Top="65" HorizontalAlignment="Left" VerticalAlignment="Center" Command="{Binding CancelButtonCommand}"/>
+
+    </Canvas>
+</Window>

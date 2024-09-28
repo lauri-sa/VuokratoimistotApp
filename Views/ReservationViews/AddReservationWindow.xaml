@@ -1,0 +1,76 @@
+﻿<Window x:Class="Ohtu1Project.Views.ReservationViews.AddReservationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ohtu1Project.Views.ReservationViews"
+        xmlns:helpers="clr-namespace:Ohtu1Project.Helpers"
+        mc:Ignorable="d"
+        Title="Lisää uusi varaus" SizeToContent="WidthAndHeight" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="#F2EFDF">
+
+    <!-- Binds a command to contentrendered event -->
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="ContentRendered">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Canvas Height="450" Width="550">
+
+        <Image Source="/Logo/Logo-dual-colour.png" Height="84" Width="264" Canvas.Left="143" Canvas.Top="21"/>
+
+        <Rectangle Height="430" Width="530" Stroke="Black" StrokeThickness="1" RadiusX="10" RadiusY="10" Canvas.Left="10" Canvas.Top="10"/>
+        <Line Stroke="Black" StrokeThickness="1" X1="530" Canvas.Left="10" Canvas.Top="110"/>
+
+        <Line Stroke="Black" StrokeThickness="1" Y1="310" Canvas.Left="375" Canvas.Top="120"/>
+
+        <Label Content="Lisää uusi varaus" Canvas.Left="70" Canvas.Top="125"/>
+        <Label Content="Toimipiste:" Canvas.Left="70" Canvas.Top="160"/>
+        <Label Content="Toimitila:" Canvas.Left="70" Canvas.Top="190"/>
+        <Label Content="Varaus alkaa:" Canvas.Left="70" Canvas.Top="220"/>
+        <Label Content="Varaus loppuu:" Canvas.Left="70" Canvas.Top="250"/>
+        <Label Content="Asiakas:" Canvas.Left="70" Canvas.Top="280"/>
+        <Label Content="Lisäpalvelut:" Canvas.Left="70" Canvas.Top="310"/>
+
+        <ComboBox Width="130" Canvas.Left="190" Canvas.Top="160" SelectedIndex="0" DisplayMemberPath="OfficeName" IsEnabled="{Binding EnableOfficesComboBox}" ItemsSource="{Binding OfficesCollection}" SelectedItem="{Binding OfficeModel}"/>
+
+        <TextBlock Width="130" Height="10" Canvas.Left="190" Canvas.Top="183" FontSize="8" Padding="0" Text="{Binding OfficesError}"/>
+
+        <ComboBox Width="130" Canvas.Left="190" Canvas.Top="190" IsEnabled="{Binding EnableOfficeSpacesComboBox}" SelectedIndex="{Binding OfficeSpaceIndex}" DisplayMemberPath="Name" ItemsSource="{Binding OfficeSpacesCollection}" SelectedItem="{Binding OfficeSpaceModel}"/>
+
+        <TextBlock Width="130" Height="10" Canvas.Left="190" Canvas.Top="211" FontSize="8" Padding="0" Text="{Binding OfficeSpacesError}"/>
+
+        <DatePicker x:Name="StartDatePicker" Width="135" Background="Transparent" Canvas.Left="190" Canvas.Top="220" 
+                    CalendarStyle="{StaticResource DatePickerCalendar}" IsEnabled="{Binding EnableDatePicker}" DisplayDateStart="{Binding StartDateDisplayDateStart}" SelectedDate="{Binding StartDate}"/>
+
+        <TextBlock Width="130" Height="10" Canvas.Left="190" Canvas.Top="241" FontSize="8" Padding="0"/>
+
+        <DatePicker x:Name="EndDatePicker" Width="135" Background="Transparent"  Canvas.Left="190" Canvas.Top="250" 
+                    CalendarStyle="{StaticResource DatePickerCalendar}" IsEnabled="{Binding EnableDatePicker}" DisplayDateStart="{Binding EndDateDisplayDateStart}" SelectedDate="{Binding EndDate}"/>
+
+        <TextBlock Width="130" Height="10" Canvas.Left="190" Canvas.Top="273" FontSize="8" Padding="0"/>
+
+        <ComboBox Width="130" Canvas.Left="190" Canvas.Top="280" Text="Valitse asiakas" DisplayMemberPath="FullName" IsEnabled="{Binding EnableCustomersComboBox}" ItemsSource="{Binding CustomersCollection}" SelectedItem="{Binding CustomerModel}"/>
+
+        <TextBlock Width="130" Height="10" Canvas.Left="190" Canvas.Top="303" FontSize="8" Padding="0" Text="{Binding CustomersError}"/>
+
+        <ComboBox Width="130" Canvas.Left="190" Canvas.Top="310" DisplayMemberPath="Name" IsEnabled="{Binding EnableServicesComboBox}" ItemsSource="{Binding ServicesCollection}" SelectedItem="{Binding ServiceModel}" Style="{StaticResource ReservationServicesComboBox}"/>
+
+        <TextBlock Width="130" Height="10" Canvas.Left="190" Canvas.Top="332" FontSize="8" Padding="0" Text="{Binding ServicesError}"/>
+
+        <ListBox Width="250" Height="75" Background="#F9F7F8"  Canvas.Left="72" Canvas.Top="349" DisplayMemberPath="Name" ItemsSource="{Binding SelectedServicesCollection}" SelectedItem="{Binding SelectedServiceModel}">
+
+            <ListBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="3"/>
+                </Style>
+            </ListBox.Resources>
+
+        </ListBox>
+
+        <Button Content="Tallenna" FontSize="14" Width="100" Height="25" Canvas.Left="410" Canvas.Top="228" HorizontalAlignment="Center" VerticalAlignment="Top" IsEnabled="{Binding EnableButton}" Command="{Binding AddButtonCommand}"/>
+        <Button Content="Palaa" FontSize="14" Width="100" Height="25" Canvas.Left="410" Canvas.Top="285" HorizontalAlignment="Center" VerticalAlignment="Top" Command="{Binding ReturnButtonCommand}"/>
+
+    </Canvas>
+</Window>
