@@ -20,7 +20,9 @@
 
 The repository contains the necessary SQL scripts to create the required database. Before running the application, you'll need to:
 
-- Create the database using the provided SQL scripts.
+- Install MySQL if it is not already installed.
+
+- Create the database using the provided SQL scripts located in the `SqlScripts` folder. The database must be set up using MySQL as the application relies on MySQL for data storage.
 
 - Add an `App.config` file to the project and configure the connection string to point to your database.
 
@@ -30,7 +32,7 @@ Copy this into your `App.config` file:
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
     <connectionStrings>
-        <add name="Ohtu1" connectionString="Host=your-database-host;Port=3306;Database=your-database-name;Uid=your-username;pwd=your-password;" />
+        <add name="Ohtu1" connectionString="Host=your-database-host;Port=your-port;Database=your-database-name;Uid=your-username;pwd=your-password;" />
     </connectionStrings>
 </configuration>
 ```
